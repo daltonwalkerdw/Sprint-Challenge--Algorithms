@@ -34,3 +34,5 @@ c)  def bunnyEars(bunnies):
 Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
+
+we would create a tilt method by starting the drop off the middle floor, if it breaks we would then skip a few floors and try it again over and over until the egg doesnt break then from there we would try and break it going back up to make sure where maximum floor height would be for dropping the egg without it breaking thus minimizing the breaks. this would be O(n) for traversing each node once

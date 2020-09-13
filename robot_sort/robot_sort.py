@@ -9,6 +9,9 @@ class SortingRobot:
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
 
+    def __len__(self):
+        return len(self)
+
     def can_move_right(self):
         """
         Returns True if the robot can move right or False if it's
@@ -91,13 +94,33 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
+    def length(self):
+        return len(self._list)
 
+    def partition(self, arr):
+        # choose a pivot (the first element)
+        pivot = self._list[0]
+    # divide the array into chunks
+        left = []
+        right = []
+        for element in self._list[1:]:
+        # every element < pivot goes into the "left" chunk
+            if element < pivot:
+                left.append(element)
+        # every element >= pivot goes into the "right" chunk
+            if element >= pivot:
+                right.append(element)
+        return left, pivot, right
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        swapped = True
+        while swapped:
+            swapped = False
+            for i in range(len(self._list) - 1):
+                if self._list[i] > self._list[i + 1]:
+                # Swap the elements
+                    self._list[i], self._list[i + 1] = self._list[i + 1], self._list[i]
+                # Set the flag to True so we'll loop again
+                    swapped = True
 
 
 if __name__ == "__main__":
